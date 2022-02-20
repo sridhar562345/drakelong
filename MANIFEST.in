@@ -1,0 +1,8 @@
+include AUTHORS.rst
+include CONTRIBUTING.rst
+include HISTORY.rst
+include LICENSE
+include README.rst
+include requirement*.txt
+recursive-include django_swagger_utils *.html *.png *.gif *js *.css *jpg *jpeg *svg *py *.j2
+recursive-include django_swagger_utils/static *

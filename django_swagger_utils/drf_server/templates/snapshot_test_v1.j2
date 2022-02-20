@@ -1,0 +1,33 @@
+"""
+# TODO: Update test case description
+"""
+import pytest
+from django_swagger_utils.utils.test_utils import TestUtils
+from . import APP_NAME, OPERATION_NAME, REQUEST_METHOD, URL_SUFFIX
+
+
+class {{test_case_class}}(TestUtils):
+    APP_NAME = APP_NAME
+    OPERATION_NAME = OPERATION_NAME
+    REQUEST_METHOD = REQUEST_METHOD
+    URL_SUFFIX = URL_SUFFIX
+    SECURITY = {{securities}}
+    {% if body != '' %}
+        {%- set body=body -%}
+    {%- else -%}
+        {% set body = dict() %}
+    {%- endif -%}
+
+
+
+
+    @pytest.mark.django_db
+    def test_case(self, snapshot):
+        body = {{body}}
+        path_params = {{path_params}}
+        query_params = {{request_query_params}}
+        headers = {{request_headers_params}}
+        response = self.make_api_call(
+            body=body, path_params=path_params,
+            query_params=query_params, headers=headers, snapshot=snapshot
+        )
